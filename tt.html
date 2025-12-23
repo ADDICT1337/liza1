@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Портфолио дизайнера | Елизавета Байдракова</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #6C63FF;
+            --secondary-color: #4A44C6;
+            --accent-color: #FF6584;
+            --dark-color: #2A2D43;
+            --light-color: #F9F9FF;
+            --gray-color: #8C8CA1;
+            --transition: all 0.3s ease;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            color: var(--gray-color);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--primary-color);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 10px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 40px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        .hero {
+            padding-top: 150px;
+            padding-bottom: 100px;
+            background: linear-gradient(135deg, rgba(108, 99, 255, 0.05) 0%, rgba(255, 101, 132, 0.05) 100%);
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--gray-color);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+
+        .hero-image img:hover {
+            transform: translateY(-10px);
+        }
+
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            margin-top: 30px;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background-color: var(--primary-color);
+            border-radius: 5px;
+        }
+
+        .portfolio {
+            background-color: #F5F5FF;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .portfolio-item {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .portfolio-info {
+            padding: 25px;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .contact-form {
+            background-color: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+
+
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .error {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        #formMessage {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            display: none;
+        }
+
+        #formMessage.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #2E7D32;
+            border: 1px solid #4CAF50;
+        }
+
+        #formMessage.error {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #C62828;
+            border: 1px solid #F44336;
+        }
+
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 70px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo span {
+            color: var(--accent-color);
+        }
+
+        .footer-about p {
+            color: #B0B0C0;
+        }
+
+        .footer-links h3, .footer-contact h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #B0B0C0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #B0B0C0;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 10px;
+            color: var(--primary-color);
+        }
+
+        .footer-contact a {
+            color: #B0B0C0;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-contact a:hover {
+            color: var(--primary-color);
+        }
+
+        .social-icons {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            margin-right: 15px;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #B0B0C0;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-content, .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 0 0 30px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-form {
+                padding: 30px 20px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .hero {
+                padding-top: 120px;
+                padding-bottom: 60px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header id="header">
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">Portfolio<span>.</span></a>
+                
+                <ul class="nav-links">
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#about">Обо мне</a></li>
+                    <li><a href="#portfolio">Портфолио</a></li>
+                    <li><a href="#contact">Контакты</a></li>
+                </ul>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Елизавета Байдракова</h1>
+                    <h2>Графический дизайнер & UX/UI специалист</h2>
+                    <p>Создаю эстетичные и функциональные дизайны, которые решают бизнес-задачи и улучшают пользовательский опыт. Работаю с брендингом, веб-дизайном и интерфейсами.</p>
+                    <a href="#portfolio" class="btn">Смотреть работы</a>
+                </div>
+                <div class="hero-image">
+
+                    <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Анна Иванова - дизайнер">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2>Обо мне</h2>
+            <div class="about-content">
+                <div>
+
+                    <img src="https://images.unsplash.com/photo-1580894894513-541e068a3e2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Рабочее место дизайнера" style="width: 100%; border-radius: 15px;">
+                </div>
+                <div class="about-text">
+                    <p>Привет! Меня зовут Елизавета Байдракова, я начинающий графический дизайнер из Санкт-Петербурга. Моя страсть — создавать современную и функциональную визуальную коммуникацию. Сейчас я активно развиваюсь в области брендинга и дизайна цифровых интерфейсов.</p>
+                    <p>Я изучаю графический дизайн, совмещая практику с теоретической базой, и уже успела поработать над несколькими проектами для малого бизнеса и личных брендов. Мой подход основан на глубоком интересе к целевой аудитории и трендам современного дизайна.</p>
+                    <p>Я верю, что качественный дизайн — это баланс между эстетикой, удобством и четким решением поставленной задачи. В своей работе я стремлюсь охватывать полный цикл: от анализа и генерации идеи до детальной проработки и подготовки макетов к реализации</p>
+                    
+                    <div class="skills">
+                        <h3>Мои навыки</h3>
+                        <div class="skill">
+                            <div class="skill-name">
+                                <span>Adobe Photoshop</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">
+                                <span>Figma</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill">
+                            <div class="skill-name">
+                                <span>Adobe Illustrator</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-level" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2>Мои работы</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 30px;">Здесь представлены некоторые из моих последних проектов в области брендинга, веб-дизайна и пользовательских интерфейсов.</p>
+            
+            <div class="portfolio-grid">
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1558655146-9f40138edfeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Брендинг кофейни" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Брендинг кофейни "Urban Brew"</h3>
+                        <p>Полный ребрендинг сети кофеен: логотип, фирменный стиль, упаковка, мерч.</p>
+                    </div>
+                </div>
+                
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Дизайн мобильного приложения" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Мобильное приложение для фитнеса</h3>
+                        <p>UI/UX дизайн приложения для тренировок и отслеживания прогресса.</p>
+                    </div>
+                </div>
+                
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Корпоративный сайт" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Корпоративный сайт FinTech компании</h3>
+                            <p>Дизайн и прототипирование современного корпоративного сайта.</p>
+                    </div>
+                </div>
+                
+
+                <div class="portfolio-item">
+
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Дизайн упаковки" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Серия упаковки для органической косметики</h3>
+                        <p>Экодизайн упаковки с акцентом на натуральность и экологичность.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Лендинг для стартапа" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Лендинг для IT-стартапа</h3>
+                        <p>Высококонверсионный лендинг с адаптивным дизайном и анимациями.</p>
+                    </div>
+                </div>
+
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1545235617-9465d2a55698?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Иллюстрации для книги" class="portfolio-img">
+                    <div class="portfolio-info">
+                        <h3>Иллюстрации для детской книги</h3>
+                        <p>Серия иллюстраций в стиле flat design для образовательного издания.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Связаться со мной</h2>
+            <p style="text-align: center; max-width: 700px; margin: 0 auto 50px;">Есть проект в разработке или хотите обсудить сотрудничество? Напишите мне, и я свяжусь с вами в ближайшее время.</p>
+            
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Ваше имя *</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Ваш email *</label>
+                        <input type="email" id="email" class="form-control" required>
+                        <div class="error" id="emailError">Пожалуйста, введите корректный email (с символом @)</div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Сообщение *</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn">Отправить сообщение</button>
+                    
+                    <div id="formMessage"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">Portfolio<span>.</span></div>
+                    <p>Создаю современный дизайн, который помогает бизнесу выделяться и привлекать клиентов. Работаю с полной отдачей и вниманием к деталям.</p>
+                    
+                    <div class="social-icons">
+                        <a href="https://vk.ru/lizka_7160" aria-label="ВКонтакте"><i class="fab fa-vk"></i></a>
+                        <a href="https://t.me/bay_lizka" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
+                        <a href="https://behance.net" aria-label="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://dribbble.com" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Быстрые ссылки</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#about">Обо мне</a></li>
+                        <li><a href="#portfolio">Портфолио</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Контакты</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Санкт-Петербург, ул. Щербакова, 9</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+79991234567">+7 (911) 721-11-59</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:baydrakova2005@mail.ru">baydrakova2005@mail.ru</a></p>
+                    <p><i class="fas fa-clock"></i> Пн-Пт: 10:00 - 19:00</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Портфолио Елизаветы Байдракова. Все права защищены.</p>
+                <p>Сайт создан вручную с использованием HTML, CSS и JavaScript.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        const contactForm = document.getElementById('contactForm');
+        const emailInput = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const formMessage = document.getElementById('formMessage');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            emailError.style.display = 'none';
+            formMessage.style.display = 'none';
+            
+            const email = emailInput.value;
+            if (!email.includes('@')) {
+                emailError.style.display = 'block';
+                emailInput.focus();
+                return;
+            }
+
+            formMessage.textContent = 'Спасибо! Ваше сообщение отправлено. Я свяжусь с вами в ближайшее время.';
+            formMessage.className = 'success';
+            formMessage.style.display = 'block';
+
+            contactForm.reset();
+
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        });
+
+        emailInput.
+        addEventListener('blur', function() {
+            if (this.value && !this.value.includes('@')) {
+                emailError.style.display = 'block';
+            } else {
+                emailError.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
